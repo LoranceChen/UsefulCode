@@ -1,0 +1,6 @@
+E:\Lorance\Project\VSproject\OberverStudy\MailAndFox\bin\Debug\MailAndFox.exe.config
+E:\Lorance\Project\VSproject\OberverStudy\MailAndFox\bin\Debug\MailAndFox.exe
+E:\Lorance\Project\VSproject\OberverStudy\MailAndFox\bin\Debug\MailAndFox.pdb
+E:\Lorance\Project\VSproject\OberverStudy\MailAndFox\obj\Debug\MailAndFox.csprojResolveAssemblyReference.cache
+E:\Lorance\Project\VSproject\OberverStudy\MailAndFox\obj\Debug\MailAndFox.exe
+E:\Lorance\Project\VSproject\OberverStudy\MailAndFox\obj\Debug\MailAndFox.pdb

@@ -1,0 +1,6 @@
+E:\Lorance\Project\VSproject\OberverStudy\OberverStudy\bin\Debug\OberverStudy.exe.config
+E:\Lorance\Project\VSproject\OberverStudy\OberverStudy\bin\Debug\OberverStudy.exe
+E:\Lorance\Project\VSproject\OberverStudy\OberverStudy\bin\Debug\OberverStudy.pdb
+E:\Lorance\Project\VSproject\OberverStudy\OberverStudy\obj\Debug\OberverStudy.csprojResolveAssemblyReference.cache
+E:\Lorance\Project\VSproject\OberverStudy\OberverStudy\obj\Debug\OberverStudy.exe
+E:\Lorance\Project\VSproject\OberverStudy\OberverStudy\obj\Debug\OberverStudy.pdb
