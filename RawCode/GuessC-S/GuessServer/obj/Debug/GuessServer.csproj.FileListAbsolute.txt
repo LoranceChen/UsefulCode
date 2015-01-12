@@ -1,0 +1,16 @@
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\bin\Debug\GuessServer.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\bin\Debug\GuessServer.exe
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\bin\Debug\GuessServer.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\bin\Debug\Applications.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\bin\Debug\Applications.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\obj\Debug\GuessServer.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\obj\Debug\GuessServer.exe
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\GuessServer\GuessServer\obj\Debug\GuessServer.pdb
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\bin\Debug\GuessServer.exe.config
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\obj\Debug\GuessServer.exe
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\obj\Debug\GuessServer.pdb
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\bin\Debug\GuessServer.exe
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\bin\Debug\GuessServer.pdb
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\bin\Debug\Applications.dll
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\bin\Debug\Applications.pdb
+E:\Lorance\Project\VSproject\GuessServer\GuessServer\obj\Debug\GuessServer.csprojResolveAssemblyReference.cache
