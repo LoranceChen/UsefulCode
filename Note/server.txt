@@ -1,0 +1,75 @@
+传输的信息：
+前提，2个玩家
+	状态分类 1.玩家接入           玩家：client.LinkToServer    服务器：socket.Accpet ，记录玩家信息 到dic中
+			 2.玩家准备			  玩家：client.Ready(string say)（实际发送特定格式的IntInfo 特定指的是usefor=Ready，mainTxt=问候语）   					服务器：保留该socket作为玩家一/玩家二，为每个准备的玩家制作特定的IntInfo信息：创建一个新的intinfo，并把客户端传进的intinfo的ready改为begin，这个信息在游戏开始时发送。
+			 有两个intInfo信息，分别发送到对方。
+			 3.游戏开始				服务器：将上一步保存的信息发布到客户端   玩家：保存信息到客户端变量中：otherIP、otherSay
+			// 4.客户端载入			客户端：client.Loaded发送intinfo.usefor=Loaded标示场景已经切换成功。  //服务器：用loadedNum=2时，发送Intinfo.usefor=Init，表示传输的是角色的位置信息和玩家留言
+			// 4.玩家角色定位位置		玩家：	
+			 5.玩家选择choose     玩家：按下button，发送消息：client.SendChoose(Choose.J/S/B)(转化成int)
+								  服务器：记录玩家选择依然用IntInfo保存信息，主要ip和Choose.J/S/B(转化成int)，这个信息在下面的阶段计算输赢时使用。
+			 6.通知玩家结果
+			 服务器 ：chooseNum=2，IntInfo GuessWin(IntInfo ply1Chose,IntInfo ply2Chose),计算输赢发送IntInfo: usefor=Win，ip="获胜客户端的IP",平局时 ip=""。
+			 客户端的事件，当GuessClient收到相应case枚举状态 的信息时，触发事件。
+	其他：
+		关于函数参数何时使用ref关键字：
+			1.为了避免对值类型的拷贝
+			2.需要对引用指针重定向。
+				重定向是指，引用类型参数在函数体中指向了一个不同于原来的空间。
+				也就是说，如果函数是在引用类型参数本身所指的对象上处理，就不需要ref。
+				
+	bug:服务器没有处理玩家异常的情况，例如断开连接时，相应的服务器变量也应处理。			
+			 
+			 
+.Net作业
+	功能需求：
+		登陆：
+			状态结果：成功、账号不存在、密码不正确、用户正在线。
+			涉及的表：Accounts 	需要的属性：userName(设定为unique索引) password isOnline
+		注册：
+			状态结果：账号已存在、注册成功
+			涉及的表：Accounts  需要的属性：除了AccountID和lastTime之外都需要。
+		载入Account的角色信息：
+			涉及的表：Roles->Positions->Sences
+						   ->Occupys
+						   ->roleProperitys->Attacks Defence
+						   ->packets
+					  ObjectInPacket->Packets Object
+					  
+					  friends->roleID
+		修改表的数据，毕竟玩家信息是会更新的
+			位置：游戏中玩家的位置会在角色退出时保存。
+				涉及的表：positions sences
+				输入 x y z SenceID
+			好友：状态结果：角色不存在，已添加，添加成功。
+				涉及的表：friends
+					隐式输入roleID
+					显示输入friendRoleID intimacy
+					
+			属性：
+				涉及的表：RoleProperty->Defence Attacks
+					显示输入：都可以作为修改对象
+			物品：
+				涉及的表：ObjectInPacket->Packets Objects  
+							详细信息：给角色的背包添加物品，
+								隐式输入packetID 隐式表示该信息有以前的信息中获取
+								用户输入x y z Number ObjectID 表示该信息是由于用户的操作而产生的特定结果
+						  Packets
+							详细信息：改变角色的金钱
+								用户输入：glod silver copper
+								
+			方法的封装：封装连接，操作，关闭三种 动作，根据情况返回操作结果。
+			
+			
+			数据库的信息需要在本地，比如读取角色信息时需要登录时的账号信息。
+			对于界面的功能来讲，在载入角色信息时，并不需要考虑账号信息，只需要调用一个方法获取角色信息即可，所以控制层需要一个全局的static来保存这些游戏中用到的唯一数据。
+			界面的调用函数接口设计： 
+									 1.获取登陆者账号的所有角色
+										Dictionary<string 角色名,int roleID> roles=Roles(int accountID);获取账户对应的角色
+											其中accountID参数有登陆成功时保存的AccountID属性指定。
+										当用户登陆成功时，会把登陆的AccountID保存到全局变量中(事实上，这个值应该有服务器保存，除此之外，连接数据库的操作都属于远程调用，sqlController文件夹中的所有方法都在服务器上，就算不是远程调用。也应该客户端应该只发送一个请求，服务器返回响应的数据)。	
+											
+									 2.根据上一步返回的角色，获取角色相应的属性。
+										Dictionary<string 属性名,string 属性值>  RoleProperty(int roleID);获取指定角色的属性
+											其中roleID参数由roles["角色名"]获取
+			安徽省宿州市砀山县道北西路139号砀山公路分局
